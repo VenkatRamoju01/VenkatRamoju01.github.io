@@ -17,7 +17,7 @@ import ResumeButton from './ResumeButton.astro';
         <div>
           <p class="eyebrow">EXPERIENCE</p>
           <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
-            Where I work
+            Where I have worked
           </h3>
         </div>
         <ResumeButton idPrefix="background" variant="subtle" />
@@ -27,10 +27,15 @@ import ResumeButton from './ResumeButton.astro';
         {
           experience.map((item) => (
             <li class="py-5 sm:grid sm:grid-cols-[150px_1fr] sm:gap-6">
-              <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1">
-                {item.period}
+              <div
+                class:list={[
+                  'text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1',
+                  !item.period && 'hidden sm:block',
+                ]}
+              >
+                {item.period ?? ''}
               </div>
-              <div class="mt-1 sm:mt-0">
+              <div class={item.period ? 'mt-1 sm:mt-0' : ''}>
                 <p class="font-medium text-[var(--text-primary)]">
                   <span>{item.role}</span>
                   <span class="mx-1.5 text-[var(--border-strong)]" aria-hidden="true">

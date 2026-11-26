@@ -21,13 +21,11 @@ export interface SiteConfig {
   photoAlt: string;
   /**
    * Resume PDF configuration.
-   * Drop your file at public/resume.pdf and flip resumeReady to true to enable direct one-click downloads.
+   * Drop your file at public/resume.pdf and flip resumeReady to true to show the Download Resume button.
    */
   resumeUrl: string;
   resumeReady: boolean;
   resumeLabel: string;
-  resumeComingSoonLabel: string;
-  resumeComingSoonNote: string;
   /**
    * Optional consultation / 1:1 booking block (e.g. Topmate or Cal.com).
    * Hidden cleanly while bookingEnabled is false.
@@ -69,9 +67,6 @@ export const siteConfig: SiteConfig = {
   resumeUrl: '/resume.pdf',
   resumeReady: false,
   resumeLabel: 'Download Resume',
-  resumeComingSoonLabel: 'Resume (PDF coming soon)',
-  resumeComingSoonNote:
-    'My updated resume PDF will be uploaded here soon. In the meantime, feel free to view my LinkedIn profile or email me directly.',
   bookingEnabled: false,
   bookingUrl: '',
   bookingLabel: 'Book a Call',

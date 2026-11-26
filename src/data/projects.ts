@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description:
       'A tool currently in development to help job seekers stay organized and make better decisions during their job search.',
     tags: ['Applied AI', 'Productivity', 'In Progress'],
-    featured: true,
+    featured: false,
   },
   {
     title: 'Day Reminder',

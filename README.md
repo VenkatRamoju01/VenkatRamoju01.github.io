@@ -30,7 +30,7 @@ All editable profile copy, links, projects, experience entries, and feature flag
    ```ts
    resumeReady: true,
    ```
-3. Commit and push to `main`. Both Download Resume buttons (and the header Resume link) immediately become active one-click PDF downloads.
+3. Commit and push to `main`. The Download Resume buttons (and the header Resume link) stay completely hidden while `resumeReady: false` and appear automatically as active one-click PDF downloads once enabled.
 
 ### 2. Add your profile photo
 1. Place a square or portrait image at `public/profile.jpg` (PNG or WebP works too).

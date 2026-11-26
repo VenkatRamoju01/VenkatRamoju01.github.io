@@ -8,7 +8,7 @@ export interface EducationItem {
 export interface ExperienceItem {
   role: string;
   organization: string;
-  period: string;
+  period?: string;
   location?: string;
   summary?: string;
   highlights?: string[];
@@ -35,23 +35,33 @@ export const experience: ExperienceItem[] = [
     organization: 'Google',
     period: 'Current',
     summary:
-      'Working across business operations, analytics, and cross-functional strategy.',
+      'Working across business operations, analytics, and cross-functional strategy. Previously worked in Performance Analytics (YouTube) at Google.',
     /*
-     * Once your resume is finalized, add bullet points right here.
-     * The layout will automatically render them as a clean list:
-     *
+     * Optional detailed bullets (automatically rendered when added):
      * highlights: [
      *   'Concise description of a key initiative or responsibility.',
-     *   'Second highlight focused on measurable business or operational impact.',
      * ],
      */
   },
+  {
+    role: 'Analytics & Automation',
+    organization: 'Accordion',
+    // period: 'MMM YYYY - MMM YYYY',
+    summary:
+      'Led an 8-member analytics and automation team supporting a $100B+ PE portfolio, reducing reporting turnaround by 88% and identifying $1M+ in SaaS savings.',
+  },
+  {
+    role: 'Operations',
+    organization: 'HPCL',
+    // period: 'MMM YYYY - MMM YYYY',
+    summary: 'Managed ₹400Cr+ energy supply-chain operations.',
+  },
 
   /*
-   * Template for adding previous roles (uncomment and fill in):
+   * Template for adding another role (uncomment and fill in):
    *
    * {
-   *   role: 'Previous Role Title',
+   *   role: 'Role Title',
    *   organization: 'Company Name',
    *   period: 'MMM YYYY - MMM YYYY',
    *   location: 'City',
