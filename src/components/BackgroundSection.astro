@@ -1,0 +1,93 @@
+---
+import { education, experience } from '../data/experience';
+import ResumeButton from './ResumeButton.astro';
+---
+
+<section
+  id="background"
+  aria-labelledby="background-heading"
+  class="scroll-mt-20 border-t border-[var(--border-hairline)] py-14 sm:py-20"
+>
+  <div class="mx-auto max-w-3xl px-6">
+    <h2 id="background-heading" class="sr-only">Experience and Education</h2>
+
+    <!-- Experience -->
+    <div>
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="eyebrow">EXPERIENCE</p>
+          <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
+            Where I work
+          </h3>
+        </div>
+        <ResumeButton idPrefix="background" variant="subtle" />
+      </div>
+
+      <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
+        {
+          experience.map((item) => (
+            <li class="py-5 sm:grid sm:grid-cols-[150px_1fr] sm:gap-6">
+              <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1">
+                {item.period}
+              </div>
+              <div class="mt-1 sm:mt-0">
+                <p class="font-medium text-[var(--text-primary)]">
+                  <span>{item.role}</span>
+                  <span class="mx-1.5 text-[var(--border-strong)]" aria-hidden="true">
+                    ·
+                  </span>
+                  <span class="text-[var(--accent)]">{item.organization}</span>
+                </p>
+                {item.location && (
+                  <p class="mt-0.5 text-xs text-[var(--text-muted)]">
+                    {item.location}
+                  </p>
+                )}
+                {item.summary && (
+                  <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                    {item.summary}
+                  </p>
+                )}
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul class="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-[var(--text-secondary)] marker:text-[var(--border-strong)]">
+                    {item.highlights.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- Education ("Where I learned") -->
+    <div id="education" class="mt-14 sm:mt-16">
+      <p class="eyebrow">WHERE I LEARNED</p>
+      <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
+        Education
+      </h3>
+
+      <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
+        {
+          education.map((edu) => (
+            <li class="py-5 sm:grid sm:grid-cols-[150px_1fr] sm:gap-6">
+              <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1">
+                {edu.period}
+              </div>
+              <div class="mt-1 sm:mt-0">
+                <p class="font-medium text-[var(--text-primary)]">
+                  {edu.institution}
+                </p>
+                <p class="mt-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  {edu.program}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

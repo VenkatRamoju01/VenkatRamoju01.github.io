@@ -1,0 +1,106 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  idPrefix: string;
+  variant?: 'secondary' | 'subtle';
+}
+
+const { idPrefix, variant = 'secondary' } = Astro.props;
+const buttonId = `${idPrefix}-resume-btn`;
+const noteId = `${idPrefix}-resume-note`;
+
+const baseClasses =
+  variant === 'secondary'
+    ? 'inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors duration-150'
+    : 'inline-flex items-center gap-2 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors duration-150';
+---
+
+{
+  siteConfig.resumeReady ? (
+    <a
+      id={buttonId}
+      href={siteConfig.resumeUrl}
+      download
+      class={`${baseClasses} border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]`}
+    >
+      <svg
+        class="h-4 w-4 shrink-0"
+        viewBox="0 0 20 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        aria-hidden="true"
+      >
+        <path
+          d="M10 3.5v8.75m0 0l-3.25-3.25M10 12.25l3.25-3.25M4 15.5h12"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span>{siteConfig.resumeLabel}</span>
+    </a>
+  ) : (
+    <div class="inline-flex flex-col items-start">
+      <button
+        id={buttonId}
+        type="button"
+        data-resume-toggle={noteId}
+        aria-expanded="false"
+        aria-controls={noteId}
+        class={`${baseClasses} cursor-pointer border-[var(--border-hairline)] bg-[var(--bg-subtle)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]`}
+      >
+        <svg
+          class="h-4 w-4 shrink-0 opacity-75"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 3.5h5.5L15 7v9.5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M11.5 3.5V7H15"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>{siteConfig.resumeComingSoonLabel}</span>
+      </button>
+      <p
+        id={noteId}
+        role="status"
+        hidden
+        class="mt-2.5 max-w-md rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-surface)] px-3.5 py-2.5 text-xs leading-relaxed text-[var(--text-secondary)]"
+      >
+        {siteConfig.resumeComingSoonNote}
+      </p>
+    </div>
+  )
+}
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-resume-toggle]');
+  buttons.forEach((btn) => {
+    if (btn.dataset.bound === 'true') return;
+    btn.dataset.bound = 'true';
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.resumeToggle;
+      if (!targetId) return;
+      const note = document.getElementById(targetId);
+      if (!note) return;
+      const isHidden = note.hasAttribute('hidden');
+      if (isHidden) {
+        note.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        note.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
