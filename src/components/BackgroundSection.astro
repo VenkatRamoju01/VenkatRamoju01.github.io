@@ -1,6 +1,5 @@
 ---
 import { education, experience } from '../data/experience';
-import { siteConfig } from '../data/siteConfig';
 import ResumeButton from './ResumeButton.astro';
 ---
 
@@ -18,11 +17,8 @@ import ResumeButton from './ResumeButton.astro';
         <div>
           <p class="eyebrow">EXPERIENCE</p>
           <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
-            Where I have worked
+            Where I've worked
           </h3>
-          <p class="mt-1.5 text-sm text-[var(--text-muted)]">
-            {siteConfig.experienceSubtitle}
-          </p>
         </div>
         <ResumeButton idPrefix="background" variant="subtle" />
       </div>
@@ -30,7 +26,7 @@ import ResumeButton from './ResumeButton.astro';
       <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
         {
           experience.map((item) => (
-            <li class="py-5 sm:grid sm:grid-cols-[164px_1fr] sm:gap-6">
+            <li class="py-5 sm:grid sm:grid-cols-[128px_1fr] sm:gap-6">
               <div
                 class:list={[
                   'text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1 sm:whitespace-nowrap',
@@ -76,17 +72,17 @@ import ResumeButton from './ResumeButton.astro';
       </ol>
     </div>
 
-    <!-- Education ("Where I learned") -->
+    <!-- Education -->
     <div id="education" class="mt-14 sm:mt-16">
-      <p class="eyebrow">WHERE I LEARNED</p>
+      <p class="eyebrow">EDUCATION</p>
       <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
-        Education
+        Where I studied
       </h3>
 
       <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
         {
           education.map((edu) => (
-            <li class="py-5 sm:grid sm:grid-cols-[164px_1fr] sm:gap-6">
+            <li class="py-5 sm:grid sm:grid-cols-[128px_1fr] sm:gap-6">
               <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1 sm:whitespace-nowrap">
                 {edu.period}
               </div>

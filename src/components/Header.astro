@@ -12,22 +12,23 @@ const navLinks = [
   id="site-header"
   class="sticky top-0 z-40 border-b border-[var(--border-hairline)] bg-[var(--bg-page)]/92 backdrop-blur-md"
 >
-  <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-4">
+  <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-3.5">
     <a
       id="nav-brand"
       href="#top"
-      class="font-serif text-lg font-medium tracking-tight text-[var(--text-primary)] transition-colors hover:text-[var(--accent)]"
+      aria-label={`${siteConfig.name} home`}
+      class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)] font-serif text-sm font-medium tracking-tight text-white transition-colors hover:bg-[var(--accent-hover)] dark:text-[#0d141c]"
     >
-      {siteConfig.name}
+      {siteConfig.monogram}
     </a>
 
-    <div class="flex items-center gap-5 sm:gap-6">
-      <nav aria-label="Primary navigation" class="hidden items-center gap-6 sm:flex">
+    <div class="flex items-center gap-4 sm:gap-6">
+      <nav aria-label="Primary navigation" class="flex items-center gap-4 sm:gap-6">
         {
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]"
+              class="text-xs font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)] sm:text-sm sm:font-normal"
             >
               {link.label}
             </a>
@@ -39,7 +40,7 @@ const navLinks = [
               id="nav-resume-link"
               href={siteConfig.resumeUrl}
               download
-              class="text-sm font-medium text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
+              class="text-xs font-medium text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)] sm:text-sm"
             >
               Resume
             </a>
@@ -51,8 +52,9 @@ const navLinks = [
         id="theme-toggle"
         type="button"
         aria-label="Toggle color theme"
+        aria-pressed="false"
         title="Switch light or dark theme"
-        class="inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-md border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--text-secondary)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
+        class="inline-flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-md border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--text-secondary)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
       >
         <!-- Moon icon (shown in light mode) -->
         <svg
@@ -87,44 +89,21 @@ const navLinks = [
       </button>
     </div>
   </div>
-
-  <!-- Compact mobile section strip -->
-  <nav
-    aria-label="Mobile section navigation"
-    class="border-t border-[var(--border-hairline)] px-6 py-2.5 sm:hidden"
-  >
-    <div class="mx-auto flex max-w-3xl items-center gap-6 overflow-x-auto text-xs font-medium text-[var(--text-secondary)]">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="whitespace-nowrap py-0.5 transition-colors hover:text-[var(--accent)]"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-      {
-        siteConfig.resumeReady && (
-          <a
-            href={siteConfig.resumeUrl}
-            download
-            class="whitespace-nowrap py-0.5 text-[var(--accent)]"
-          >
-            Resume
-          </a>
-        )
-      }
-    </div>
-  </nav>
 </header>
 
 <script>
   const toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) {
+    const syncAria = () => {
+      toggleBtn.setAttribute(
+        'aria-pressed',
+        document.documentElement.classList.contains('dark') ? 'true' : 'false'
+      );
+    };
+    syncAria();
     toggleBtn.addEventListener('click', () => {
-      const root = document.documentElement;
-      const isDark = root.classList.toggle('dark');
+      const isDark = document.documentElement.classList.toggle('dark');
+      syncAria();
       try {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
       } catch {
