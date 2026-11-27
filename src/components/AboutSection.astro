@@ -3,21 +3,21 @@ import { siteConfig } from '../data/siteConfig';
 ---
 
 <section
-  id="about"
-  aria-labelledby="about-heading"
-  class="scroll-mt-20 border-t border-[var(--border-hairline)] py-14 sm:py-20"
+  id="story"
+  aria-labelledby="story-heading"
+  class="scroll-mt-20 border-t border-[var(--border-hairline)] py-14 sm:py-18"
 >
   <div class="mx-auto max-w-3xl px-6">
-    <p class="eyebrow">ABOUT</p>
+    <p class="eyebrow">MY STORY</p>
     <h2
-      id="about-heading"
+      id="story-heading"
       class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl"
     >
-      A bit about my background
+      How I got here
     </h2>
 
-    <div class="mt-6 max-w-2xl space-y-4 text-[0.98rem] leading-[1.75] text-[var(--text-secondary)]">
-      {siteConfig.aboutParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <div class="mt-6 max-w-2xl space-y-4 text-[0.98rem] leading-[1.78] text-[var(--text-secondary)]">
+      {siteConfig.storyParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </div>
 </section>

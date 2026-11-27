@@ -1,24 +1,28 @@
 ---
 import { education, experience } from '../data/experience';
+import { siteConfig } from '../data/siteConfig';
 import ResumeButton from './ResumeButton.astro';
 ---
 
 <section
   id="background"
   aria-labelledby="background-heading"
-  class="scroll-mt-20 border-t border-[var(--border-hairline)] py-14 sm:py-20"
+  class="scroll-mt-20 border-t border-[var(--border-hairline)] py-14 sm:py-18"
 >
   <div class="mx-auto max-w-3xl px-6">
     <h2 id="background-heading" class="sr-only">Experience and Education</h2>
 
     <!-- Experience -->
     <div>
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p class="eyebrow">EXPERIENCE</p>
           <h3 class="mt-2 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--text-primary)] sm:text-3xl">
             Where I have worked
           </h3>
+          <p class="mt-1.5 text-sm text-[var(--text-muted)]">
+            {siteConfig.experienceSubtitle}
+          </p>
         </div>
         <ResumeButton idPrefix="background" variant="subtle" />
       </div>
@@ -43,6 +47,11 @@ import ResumeButton from './ResumeButton.astro';
                   </span>
                   <span class="text-[var(--accent)]">{item.organization}</span>
                 </p>
+                {item.focus && (
+                  <p class="mt-0.5 text-xs font-medium text-[var(--text-muted)]">
+                    {item.focus}
+                  </p>
+                )}
                 {item.location && (
                   <p class="mt-0.5 text-xs text-[var(--text-muted)]">
                     {item.location}

@@ -11,7 +11,7 @@ All editable profile copy, links, projects, experience entries, and feature flag
 ├── .github/workflows/deploy.yml   # Automatic GitHub Pages deployment on push to main
 ├── public/                        # Static files (favicon, future resume.pdf, profile.jpg)
 ├── src/
-│   ├── components/                # Page sections (Header, Hero, Projects, About, Background, Connect, Footer)
+│   ├── components/                # Page sections (Header, Hero, Selected Projects, My Story, Background, Footer)
 │   ├── data/
 │   │   ├── siteConfig.ts          # Personal info, bio, social links, photo, resume & booking flags
 │   │   ├── projects.ts            # Projects / products list

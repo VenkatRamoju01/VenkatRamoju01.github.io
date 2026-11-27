@@ -8,6 +8,7 @@ export interface EducationItem {
 export interface ExperienceItem {
   role: string;
   organization: string;
+  focus?: string;
   period?: string;
   location?: string;
   summary?: string;
@@ -18,14 +19,14 @@ export const education: EducationItem[] = [
   {
     institution: 'Indian School of Business (ISB)',
     shortName: 'ISB',
-    program: 'MBA (PGP in Finance & IT Management)',
-    period: 'Apr 2023 - Apr 2024',
+    program: 'MBA (PGP in Finance & IT Management), 3.6/4.0',
+    period: 'Apr 2023 – Apr 2024',
   },
   {
-    institution: 'Indian Institute of Technology Hyderabad (IITH)',
+    institution: 'IIT Hyderabad',
     shortName: 'IIT Hyderabad',
-    program: 'B.Tech in Civil Engineering & Minor in Economics',
-    period: 'Aug 2016 - May 2020',
+    program: 'B.Tech in Civil Engineering, 9.2/10.0, Institute Silver Medalist',
+    period: 'Aug 2016 – May 2020',
   },
 ];
 
@@ -33,23 +34,25 @@ export const experience: ExperienceItem[] = [
   {
     role: 'Strategy & Operations',
     organization: 'Google (YouTube)',
-    period: 'Aug 2025 - Present',
+    period: 'Aug 2025 – Present',
     summary:
-      'Working on partner payment integrity, financial reconciliation, and AI-assisted anomaly workflows in YouTube Deal Strategy & Operations. Previously worked as Performance Lead in YouTube Help Center Analytics.',
+      'Currently part of YouTube Deal Strategy & Operations (Payment Integrity), working across engineering, business, legal, and finance teams on partner payout integrity and pre-payout AI anomaly workflows. Previously served as Performance Lead in YouTube Help Center Analytics.',
   },
   {
     role: 'Business Manager',
-    organization: 'Accordion',
-    period: 'Apr 2024 - Aug 2025',
+    organization: 'Accordion India',
+    focus: 'Private Equity Portfolio Operations & Analytics',
+    period: 'Apr 2024 – Aug 2025',
     summary:
-      'Led an 8-member private equity portfolio operations and analytics team building SaaS scorecards, M&A tools, and workflow automation across 80+ B2B SaaS companies.',
+      'Managed a team of 8 analysts serving a top US software PE firm across 80+ B2B SaaS portfolio companies, building executive KPI scorecards, M&A benchmarking tools, and automated reporting and validation workflows.',
   },
   {
     role: 'Operations Officer',
-    organization: 'HPCL',
-    period: 'Sep 2020 - Apr 2023',
+    organization: 'Hindustan Petroleum Corporation Limited (HPCL)',
+    focus: 'Petroleum Pipeline Operations',
+    period: 'Sep 2020 – Apr 2023',
     summary:
-      'Managed 24/7 operations, safety, and infrastructure projects across a 133 km cross-country petroleum pipeline.',
+      'Managed 24/7 mission-critical pipeline operations, supporting ML-based alarm classification deployment, BI reporting automation, and vendor and capex governance.',
   },
 
   /*
@@ -58,12 +61,12 @@ export const experience: ExperienceItem[] = [
    * {
    *   role: 'Role Title',
    *   organization: 'Company Name',
-   *   period: 'MMM YYYY - MMM YYYY',
+   *   focus: 'Optional team or focus area',
+   *   period: 'MMM YYYY – MMM YYYY',
    *   location: 'City',
-   *   summary: 'Optional one-line overview of the role.',
+   *   summary: 'Optional concise overview of the role.',
    *   highlights: [
    *     'Key project, scope, or outcome.',
-   *     'Another clear bullet point.',
    *   ],
    * },
    */

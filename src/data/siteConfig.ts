@@ -1,13 +1,16 @@
 export interface SiteConfig {
   name: string;
-  eyebrow: string;
   title: string;
   description: string;
   siteUrl: string;
-  heroIntro: string;
-  aboutParagraphs: string[];
-  connectHeading: string;
-  connectNote: string;
+  heroGreeting: string;
+  heroSubline: string;
+  projectsIntro: string;
+  linkedInNotePrefix: string;
+  linkedInNoteLinkText: string;
+  linkedInNoteSuffix: string;
+  storyParagraphs: string[];
+  experienceSubtitle: string;
   email: string;
   social: {
     linkedin: string;
@@ -35,7 +38,7 @@ export interface SiteConfig {
   bookingLabel: string;
   bookingDescription: string;
   /**
-   * Optional quiet disclaimer rendered in the footer.
+   * Quiet employer disclaimer rendered in the footer.
    */
   footerDisclaimer: string;
   /**
@@ -47,20 +50,27 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: 'Venkat Ramoju',
-  eyebrow: 'STRATEGY & OPERATIONS · ANALYTICS · APPLIED AI BUILDER',
-  title: 'Venkat Ramoju | Strategy & Operations, Analytics, Applied AI Builder',
+  title: 'Venkat Ramoju',
   description:
-    'Personal website of Venkat Ramoju. Strategy & Operations professional at Google, IIT Hyderabad and ISB alumnus, building practical AI tools and web apps.',
+    'Personal website of Venkat Ramoju. Strategy & Operations at Google (YouTube), previously at Accordion and HPCL, educated at IIT Hyderabad and ISB.',
   siteUrl: 'https://venkatramoju01.github.io',
-  heroIntro:
-    'Strategy & Operations professional at Google with a background in analytics and business operations, educated at IIT Hyderabad and ISB. Outside of day-to-day work, I like building small, practical AI tools and web apps to solve everyday problems.',
-  aboutParagraphs: [
-    'I studied engineering with a minor in economics at IIT Hyderabad and later completed my MBA (PGP) at ISB, focusing on finance and IT management. Most of my career sits at the intersection of business operations, analytics, and structured problem solving.',
-    'Outside work, I enjoy prototyping useful side projects with AI and web technologies. I prefer keeping things simple: find a real everyday problem, ship a focused tool, and iterate based on how people actually use it.',
+  heroGreeting:
+    "Hi, I'm Venkat. I currently work in Strategy & Operations at Google (YouTube). Previously at Accordion and HPCL; studied at IIT Hyderabad and ISB.",
+  heroSubline:
+    "In my free time, I experiment with AI workflows, build small tools, and share what I'm learning.",
+  projectsIntro:
+    'Much of my day-to-day work at Google and several personal experiments are either confidential or still in progress. This is a curated, living inventory of public-safe builds I can share here.',
+  linkedInNotePrefix: 'I also share occasional practical notes on ',
+  linkedInNoteLinkText: 'LinkedIn',
+  linkedInNoteSuffix: ' as I experiment and learn along the way.',
+  storyParagraphs: [
+    'I grew up in a modest household where doing well academically was the main focus. While studying at RGUKT, where I topped ECE in my first year, I prepared for IIT-JEE on my own and joined IIT Hyderabad in Civil Engineering, graduating as the Institute Silver Medalist (9.2/10.0).',
+    'I always had a quiet pull toward computer science and coding, and enjoyed working with Python and C in my first year. Even so, I stayed in marks-first mode and figured out my career mostly by trying paths and learning what did not fit. I briefly explored UPSC and Civil Services, did a third-year research internship in Japan where I realized academia and civil engineering were not for me, joined HPCL in pipeline operations, and later did my MBA at ISB Hyderabad to move into the private sector.',
+    'At Accordion India, analytics was completely new to me. Learning fast on the job, leading a team, and building real automation systems there eventually led me to Google.',
+    'Over the last year at Google, modern AI tools finally brought back that old builder curiosity. They made it possible for a non-CS operator to build real tools, automations, and even this website. Today, this site is simply my experimental playground and a living inventory of what I am building and learning.',
   ],
-  connectHeading: 'Say hello',
-  connectNote:
-    'If you want to talk about a product idea, compare notes on practical AI tools, or collaborate on something useful, feel free to reach out. Email and LinkedIn are the fastest ways to reach me.',
+  experienceSubtitle:
+    '5+ years across tech, private equity operations, and energy infrastructure',
   email: 'ramoju.b2024@gmail.com',
   social: {
     linkedin: 'https://www.linkedin.com/in/venkat-ramoju/',
@@ -77,6 +87,6 @@ export const siteConfig: SiteConfig = {
   bookingDescription:
     'Open to focused 1:1 chats on strategy, operations, analytics, or building small AI products.',
   footerDisclaimer:
-    "Personal website. Views and side projects are my own and not my employer's.",
+    'Views and experiments shared here are strictly my own and do not represent my employer.',
   elevenLabsAgentId: '',
 };

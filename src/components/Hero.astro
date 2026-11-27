@@ -5,7 +5,7 @@ import ResumeButton from './ResumeButton.astro';
 const hasPhoto = Boolean(siteConfig.photoUrl.trim());
 ---
 
-<section id="top" class="pt-14 pb-14 sm:pt-20 sm:pb-20">
+<section id="top" class="pt-14 pb-12 sm:pt-20 sm:pb-16">
   <div class="mx-auto max-w-3xl px-6">
     <div
       class={hasPhoto
@@ -13,81 +13,31 @@ const hasPhoto = Boolean(siteConfig.photoUrl.trim());
         : 'max-w-2xl'}
     >
       <div class="flex-1">
-        <p class="eyebrow">{siteConfig.eyebrow}</p>
-
         <h1
-          class="mt-4 font-serif text-4xl font-medium tracking-[-0.025em] text-[var(--text-primary)] sm:text-5xl"
+          class="font-serif text-4xl font-medium tracking-[-0.025em] text-[var(--text-primary)] sm:text-5xl"
         >
           {siteConfig.name}
         </h1>
 
         <p
-          class="mt-5 text-base leading-[1.72] text-[var(--text-secondary)] sm:text-[1.0625rem]"
+          class="mt-5 text-base leading-[1.75] text-[var(--text-primary)] sm:text-[1.0625rem]"
         >
-          {siteConfig.heroIntro}
+          {siteConfig.heroGreeting}
         </p>
 
-        <!-- Primary actions -->
-        <div class="mt-7 flex flex-wrap items-start gap-3">
-          <a
-            id="hero-view-projects"
-            href="#projects"
-            class="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white transition-colors duration-150 hover:bg-[var(--accent-hover)] dark:text-[#0d141c]"
-          >
-            <span>View Projects</span>
-            <svg
-              class="h-4 w-4"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-              aria-hidden="true"
-            >
-              <path
-                d="M10 4.5v11m0 0l-4-4m4 4l4-4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
-
-          <ResumeButton idPrefix="hero" variant="secondary" />
-        </div>
-
-        <!-- Direct inline links -->
-        <div
-          class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[var(--text-secondary)]"
+        <p
+          class="mt-3 text-base leading-[1.75] text-[var(--text-secondary)] sm:text-[1.0625rem]"
         >
-          <a
-            id="hero-email-link"
-            href={`mailto:${siteConfig.email}`}
-            class="editorial-link inline-flex items-center gap-1.5"
-          >
-            <span>Email</span>
-          </a>
-          <span class="text-[var(--border-strong)]" aria-hidden="true">/</span>
-          <a
-            id="hero-linkedin-link"
-            href={siteConfig.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="editorial-link inline-flex items-center gap-1"
-          >
-            <span>LinkedIn</span>
-            <span class="text-xs text-[var(--text-muted)]" aria-hidden="true">&#8599;</span>
-          </a>
-          <span class="text-[var(--border-strong)]" aria-hidden="true">/</span>
-          <a
-            id="hero-github-link"
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="editorial-link inline-flex items-center gap-1"
-          >
-            <span>GitHub</span>
-            <span class="text-xs text-[var(--text-muted)]" aria-hidden="true">&#8599;</span>
-          </a>
-        </div>
+          {siteConfig.heroSubline}
+        </p>
+
+        {
+          siteConfig.resumeReady && (
+            <div class="mt-6">
+              <ResumeButton idPrefix="hero" variant="secondary" />
+            </div>
+          )
+        }
       </div>
 
       {
