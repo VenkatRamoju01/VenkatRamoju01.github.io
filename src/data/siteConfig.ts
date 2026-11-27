@@ -35,6 +35,10 @@ export interface SiteConfig {
   bookingLabel: string;
   bookingDescription: string;
   /**
+   * Optional quiet disclaimer rendered in the footer.
+   */
+  footerDisclaimer: string;
+  /**
    * Optional ElevenLabs Conversational AI agent ID for future experiments.
    * Leave as "" so nothing is loaded or rendered on the page.
    */
@@ -51,7 +55,7 @@ export const siteConfig: SiteConfig = {
   heroIntro:
     'Strategy & Operations professional at Google with a background in analytics and business operations, educated at IIT Hyderabad and ISB. Outside of day-to-day work, I like building small, practical AI tools and web apps to solve everyday problems.',
   aboutParagraphs: [
-    'I studied engineering with a minor in economics at IIT Hyderabad and later completed my PGP in Management at ISB, focusing on finance and IT management. Most of my career sits at the intersection of business operations, analytics, and structured problem solving.',
+    'I studied engineering with a minor in economics at IIT Hyderabad and later completed my MBA (PGP) at ISB, focusing on finance and IT management. Most of my career sits at the intersection of business operations, analytics, and structured problem solving.',
     'Outside work, I enjoy prototyping useful side projects with AI and web technologies. I prefer keeping things simple: find a real everyday problem, ship a focused tool, and iterate based on how people actually use it.',
   ],
   connectHeading: 'Say hello',
@@ -72,5 +76,7 @@ export const siteConfig: SiteConfig = {
   bookingLabel: 'Book a Call',
   bookingDescription:
     'Open to focused 1:1 chats on strategy, operations, analytics, or building small AI products.',
+  footerDisclaimer:
+    "Personal website. Views and side projects are my own and not my employer's.",
   elevenLabsAgentId: '',
 };

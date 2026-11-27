@@ -26,10 +26,10 @@ import ResumeButton from './ResumeButton.astro';
       <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
         {
           experience.map((item) => (
-            <li class="py-5 sm:grid sm:grid-cols-[150px_1fr] sm:gap-6">
+            <li class="py-5 sm:grid sm:grid-cols-[164px_1fr] sm:gap-6">
               <div
                 class:list={[
-                  'text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1',
+                  'text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1 sm:whitespace-nowrap',
                   !item.period && 'hidden sm:block',
                 ]}
               >
@@ -77,8 +77,8 @@ import ResumeButton from './ResumeButton.astro';
       <ol class="mt-7 divide-y divide-[var(--border-hairline)] border-t border-b border-[var(--border-hairline)]">
         {
           education.map((edu) => (
-            <li class="py-5 sm:grid sm:grid-cols-[150px_1fr] sm:gap-6">
-              <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1">
+            <li class="py-5 sm:grid sm:grid-cols-[164px_1fr] sm:gap-6">
+              <div class="text-xs font-medium tracking-wide text-[var(--text-muted)] sm:pt-1 sm:whitespace-nowrap">
                 {edu.period}
               </div>
               <div class="mt-1 sm:mt-0">
